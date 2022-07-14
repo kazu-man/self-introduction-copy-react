@@ -1,11 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import  ParallaxHorizontalScrollPage from './components/home/ParallaxHorizontalScrollPage';
+// import { ScrollSkew } from './components/ScrollSkew';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      {/* <ParallaxHorizontalScrollPage /> */}
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
@@ -18,7 +21,14 @@ function App() {
         >
           Learn React
         </a>
-      </header>
+      </header> */}
+      <div className="main-area">
+      <ParallaxHorizontalScrollPage />
+
+      </div>
+
+
+      {/* <ScrollSkew /> */}
     </div>
   );
 }
