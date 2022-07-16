@@ -40,7 +40,7 @@ const styled = {
         width:"100%",
         fontSize:"3rem",
         color:"black",
-        "-webkit-text-stroke":"1px white"
+        WebkitTextStroke:"1px white"
     })
 
 

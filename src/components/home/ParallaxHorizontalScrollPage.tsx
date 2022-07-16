@@ -11,15 +11,15 @@ import ContentBox from './ContentBox';
 import BarPercent from './BarPercent';
 
 
+export type imageType = {
+  title:string,
+  image:string,
+  subTitle:string
+}
+
 export type contentBoxType = {
-  leftPic:{
-    title:string,
-    image:string
-  },
-  rightPic:{
-    title:string,
-    image:string
-  },
+  leftPic:imageType,
+  rightPic:imageType
 }
 
 
@@ -30,62 +30,74 @@ const ParallaxHorizontalScrollPage = () => {
   const [contents] = useState <contentBoxType[]> ([
     {
       leftPic:{
-        title:"main",
-        image:"main.jpg"
+        title:"Sample",
+        image:"main.jpg",
+        subTitle:"Corperate Site"
       },
       rightPic:{
         title:"second",
-        image:"main.jpg"
+        image:"main.jpg",
+        subTitle:"brand"
       },
     },
     {
       leftPic:{
         title:"main",
-        image:"main.jpg"
+        image:"main.jpg",
+        subTitle:"brand"
       },
       rightPic:{
         title:"second",
-        image:"main.jpg"
+        image:"main.jpg",
+        subTitle:"brand"
       },
     },
     {
       leftPic:{
         title:"main",
-        image:"main.jpg"
+        image:"main.jpg",
+        subTitle:"brand"
       },
       rightPic:{
         title:"second",
-        image:"main.jpg"
+        image:"main.jpg",
+        subTitle:"brand"
       },
     },
     {
       leftPic:{
         title:"main",
-        image:"main.jpg"
+        image:"main.jpg",
+        subTitle:"brand"
       },
       rightPic:{
         title:"second",
-        image:"main.jpg"
+        image:"main.jpg",
+        subTitle:"brand"
       },
     },
     {
       leftPic:{
         title:"main",
-        image:"main.jpg"
+        image:"main.jpg",
+        subTitle:"brand"
       },
       rightPic:{
         title:"second",
-        image:"main.jpg"
+        image:"main.jpg",
+        subTitle:"brand"
       },
     },
     {
       leftPic:{
         title:"main",
-        image:"main.jpg"
+        image:"main.jpg",
+        subTitle:"brand"
       },
       rightPic:{
         title:"second",
-        image:"main.jpg"
+        image:"main.jpg",
+        subTitle:"brand"
       },
     },
   ])

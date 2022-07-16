@@ -4,7 +4,6 @@ import './App.css';
 import  ParallaxHorizontalScrollPage from './components/home/ParallaxHorizontalScrollPage';
 import NavBar from "./components/NavBar";
 // import { ScrollSkew } from './components/ScrollSkew';
-
 function App() {
   return (
     <div className="App">
