@@ -38,7 +38,9 @@ const styled = {
     }),
     topSubtitle:css({
         width:"100%",
-        fontSize:"3rem"
+        fontSize:"3rem",
+        color:"black",
+        "-webkit-text-stroke":"1px white"
     })
 
 

@@ -10,6 +10,7 @@ import TopBox from './TopBox'
 import ContentBox from './ContentBox';
 import BarPercent from './BarPercent';
 
+
 export type contentBoxType = {
   leftPic:{
     title:string,

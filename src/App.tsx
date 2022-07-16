@@ -2,6 +2,7 @@ import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
 import  ParallaxHorizontalScrollPage from './components/home/ParallaxHorizontalScrollPage';
+import NavBar from "./components/NavBar";
 // import { ScrollSkew } from './components/ScrollSkew';
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         </a>
       </header> */}
       <div className="main-area">
+        <NavBar />
       <ParallaxHorizontalScrollPage />
 
       </div>
