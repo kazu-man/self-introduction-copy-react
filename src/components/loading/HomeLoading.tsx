@@ -5,7 +5,7 @@ import { useEffect, useState, useRef } from "react";
 import BarPercent from "../home/BarPercent";
 import gsap from "gsap";
 
-const Loading = () =>{
+const HomeLoading = () =>{
 
     const [percentNum,setPercentNum] = useState(0);
     const [showLoading,setShowLoading] = useState(true);
@@ -33,7 +33,7 @@ const Loading = () =>{
                         //barが100%になったらloading終了
                         clearInterval(timer!);
                         closeLoading()
-                        
+
                         return 100;
                     }
                     return num + 1;
@@ -52,7 +52,7 @@ const Loading = () =>{
         .from(nameDom.current,{
             y:"-100%",
             skewY:-10,
-            diration:0.5
+            duration:0.5
         })
         .from(barDom.current,
             {
@@ -149,4 +149,4 @@ const styled = {
     })
 }
 
-export default Loading;
+export default HomeLoading;

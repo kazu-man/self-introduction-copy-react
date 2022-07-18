@@ -1,22 +1,23 @@
 import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import  ParallaxHorizontalScrollPage from './components/home/ParallaxHorizontalScrollPage';
-import Loading from './components/loading/Loading';
-import NavBar from "./components/NavBar";
-// import { ScrollSkew } from './components/ScrollSkew';
+import Home from './components/home/Home';
+import About from './components/about/About';
+import {BrowserRouter,Route,Routes} from "react-router-dom";
+
 function App() {
   return (
     <div className="App">
-      <Loading/>
-      <div className="main-area">
-        <NavBar />
-      <ParallaxHorizontalScrollPage />
 
-      </div>
+      <BrowserRouter>
+        <Routes>
+        
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/about" element={<About/>}></Route>
+          
+        </Routes>
+      </BrowserRouter>
 
-
-      {/* <ScrollSkew /> */}
     </div>
   );
 }

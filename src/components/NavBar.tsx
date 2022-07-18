@@ -3,11 +3,17 @@
 import {useRef} from "react";
 import { css  }  from '@emotion/react'
 import gsap from "gsap"
+import { useNavigate } from "react-router-dom";
 
-  const NavBar = ( ) => {
+  const NavBar = () => {
+
     const circle = useRef(null);
     const aboutCircle = useRef(null);
+    let navigate = useNavigate();
 
+    const toAbout = () =>{
+        navigate("/about")
+    }
 
     const circleMove = () =>{
     
@@ -57,7 +63,7 @@ import gsap from "gsap"
                 <div css={styled.circle} ></div>
                 <div css={styled.circle} ref={circle} onMouseOver={circleMove}></div>
             </div>
-            <div css={styled.aboutLink} onMouseOver={aboutCircleMove}>
+            <div css={styled.aboutLink} onMouseOver={aboutCircleMove} onClick={toAbout}>
                 <div css={styled.aboutCircle} ref={aboutCircle}></div>
                 About
             </div>
