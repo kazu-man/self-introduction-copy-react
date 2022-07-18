@@ -1,11 +1,8 @@
-// gsapスクロールでscale .skewを変更する
-// https://codepen.io/GreenSock/pen/eYpGLYL
-
-
 import React, { useEffect,ReactNode } from 'react';
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import MainLayoutLoading from '../loading/MainLayoutLoading';
+import NavBar from "../NavBar"
 
 type propType = {
     children:ReactNode
@@ -54,6 +51,7 @@ const MainLayout = ({ children }: propType) => {
             
         <div className="area js-area">
             <MainLayoutLoading/>
+            <NavBar theme={"black"}/>
             {body()}
         </div>
 

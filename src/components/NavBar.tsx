@@ -5,7 +5,11 @@ import { css  }  from '@emotion/react'
 import gsap from "gsap"
 import { useNavigate } from "react-router-dom";
 
-  const NavBar = () => {
+type propsType ={
+    theme:"black" | "white"
+}
+
+  const NavBar = ({theme}:propsType) => {
 
     const circle = useRef(null);
     const aboutCircle = useRef(null);
@@ -13,6 +17,9 @@ import { useNavigate } from "react-router-dom";
 
     const toAbout = () =>{
         navigate("/about")
+    }
+    const toHome = () =>{
+        navigate("/")
     }
 
     const circleMove = () =>{
@@ -59,12 +66,12 @@ import { useNavigate } from "react-router-dom";
 
     return (
         <div css={styled.area}>
-            <div>
+            <div onClick={toHome}>
                 <div css={styled.circle} ></div>
                 <div css={styled.circle} ref={circle} onMouseOver={circleMove}></div>
             </div>
-            <div css={styled.aboutLink} onMouseOver={aboutCircleMove} onClick={toAbout}>
-                <div css={styled.aboutCircle} ref={aboutCircle}></div>
+            <div css={styled.aboutLink} onMouseOver={aboutCircleMove} onClick={toAbout} style={{color:theme}}>
+                <div css={styled.aboutCircle} ref={aboutCircle} style={{background:theme}}></div>
                 About
             </div>
         </div>
