@@ -103,8 +103,8 @@ const ParallaxHorizontalScrollPage = () => {
   ])
 
     useEffect(() => {
-      
-        //プラグインを定義
+
+      //プラグインを定義
         gsap.registerPlugin(ScrollTrigger);
 
         const area  = document.querySelector(".js-area")!;
@@ -161,10 +161,6 @@ const ParallaxHorizontalScrollPage = () => {
   
     }, [])
 
-    useEffect(() => {
-      console.log(scrollPercent)
-    },[scrollPercent])
-
     const contentsBoxList = () =>{
       return (
         contents.map((content, index) => {
@@ -189,7 +185,12 @@ const ParallaxHorizontalScrollPage = () => {
           <div className="item js-item first-box" css={[styled.item]}><TopBox /></div>
           {contentsBoxList()}
         </div>
-        <BarPercent percent={Math.ceil(scrollPercent)}/>
+        <div css={styled.barArea}>
+          <div css={styled.barWidth}>
+            <BarPercent percent={Math.ceil(scrollPercent)}/>
+          </div>
+
+        </div>
       </div>
     )
 }
@@ -225,6 +226,16 @@ const styled = {
     item06:css({
         background: "#f8b633"
     }),
+    barArea:css({
+      position: "fixed",
+      bottom:"30px",
+      width:"100%",
+      color:"white"
+    }),
+    barWidth:css({
+      width:"60%",
+      margin:"auto"
+    })
 }
 
   

@@ -1,6 +1,5 @@
-//App.tsx
-
 /** @jsxImportSource @emotion/react */
+
 import {useRef} from "react";
 import { css  }  from '@emotion/react'
 import gsap from "gsap"
