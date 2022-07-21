@@ -31,72 +31,72 @@ const ParallaxHorizontalScrollPage = () => {
     {
       leftPic:{
         title:"Sample",
-        image:"main.jpg",
+        image:"https://picsum.photos/600/600?random=1",
         subTitle:"Corperate Site"
       },
       rightPic:{
         title:"second",
-        image:"main.jpg",
+        image:"https://picsum.photos/600/600?random=2",
         subTitle:"brand"
       },
     },
     {
       leftPic:{
         title:"main",
-        image:"main.jpg",
+        image:"https://picsum.photos/600/600?random=3",
         subTitle:"brand"
       },
       rightPic:{
         title:"second",
-        image:"main.jpg",
+        image:"https://picsum.photos/600/600?random=4",
         subTitle:"brand"
       },
     },
     {
       leftPic:{
         title:"main",
-        image:"main.jpg",
+        image:"https://picsum.photos/600/600?random=5",
         subTitle:"brand"
       },
       rightPic:{
         title:"second",
-        image:"main.jpg",
+        image:"https://picsum.photos/600/600?random=6",
         subTitle:"brand"
       },
     },
     {
       leftPic:{
         title:"main",
-        image:"main.jpg",
+        image:"https://picsum.photos/600/600?random=7",
         subTitle:"brand"
       },
       rightPic:{
         title:"second",
-        image:"main.jpg",
+        image:"https://picsum.photos/600/600?random=8",
         subTitle:"brand"
       },
     },
     {
       leftPic:{
         title:"main",
-        image:"main.jpg",
+        image:"https://picsum.photos/600/600?random=9",
         subTitle:"brand"
       },
       rightPic:{
         title:"second",
-        image:"main.jpg",
+        image:"https://picsum.photos/600/600?random=10",
         subTitle:"brand"
       },
     },
     {
       leftPic:{
         title:"main",
-        image:"main.jpg",
+        image:"https://picsum.photos/600/600?random=11",
         subTitle:"brand"
       },
       rightPic:{
         title:"second",
-        image:"main.jpg",
+        image:"https://picsum.photos/600/600?random=12",
         subTitle:"brand"
       },
     },
