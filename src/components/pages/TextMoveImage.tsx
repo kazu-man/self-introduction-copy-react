@@ -1,11 +1,15 @@
 /** @jsxImportSource @emotion/react */
-import {useEffect} from "react";
+import {useEffect,useState} from "react";
 import { css } from "@emotion/react";
 import gsap from "gsap";
+import { EmotionJSX } from "@emotion/react/types/jsx-namespace";
 
 
-const TextMoveImage = () => {
-    let flg = true;
+const TextMoveImage = ({text}:{text:string}) => {
+    const [flg,setFlg] = useState(true);
+    //必要な文字数
+    const MIN_TEXT_LENGTH = 60;
+
     useEffect(()=>{
         if(!flg) return;
 
@@ -35,36 +39,37 @@ const TextMoveImage = () => {
 
         textFlow()
 
-        flg = false;
-    },[])
+        setFlg(false);
+    },[flg])
+
+    const repeatText = (type:string) => {
+        const classType = type === "black" ? "blackText" : "redText";
+        const textLength = text.length;
+        const repeatTimes = MIN_TEXT_LENGTH / textLength;
+        let result: EmotionJSX.Element[] = [];
+
+        for(let i=0;i<repeatTimes;i++){
+            result.push((
+                <div style={{margin:"0",display:"inline-block"}} className={`moveText ${classType}`} key={classType + i}>
+                    {text}
+                </div> 
+            ))     
+        }
+
+        return result; 
+    }
 
     return ( 
         <div css={styled.profileImageWrap}>
             <div css={styled.blackTextBox}>
                 <div css={styled.blackText}>
-                    <div style={{margin:"0",display:"inline-block"}} className="moveText blackText">
-                    CODE IS DESIGN - 
-                    </div> 
-                    <div style={{margin:"0",display:"inline-block"}} className="moveText blackText">
-                    CODE IS DESIGN - 
-                    </div>                          
-                    <div style={{margin:"0",display:"inline-block"}} className="moveText blackText">
-                    CODE IS DESIGN - 
-                    </div>     
+                    {repeatText("black")}
                 </div>
             </div>
             <div css={styled.picWithRedtextBox}>
                 <img alt="" css={[styled.profilePic]} src="https://picsum.photos/600/600?random=1" id="imageBox"/>
                 <div css={styled.redText} >
-                    <div style={{margin:"0",display:"inline-block"}} className="moveText redText">
-                    CODE IS DESIGN - 
-                    </div>     
-                    <div style={{margin:"0",display:"inline-block"}} className="moveText redText">
-                    CODE IS DESIGN - 
-                    </div>
-                    <div style={{margin:"0",display:"inline-block"}} className="moveText redText">
-                    CODE IS DESIGN - 
-                    </div>
+                    {repeatText("red")}
                 </div>
             </div>
         </div>

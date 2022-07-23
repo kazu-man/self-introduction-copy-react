@@ -20,7 +20,7 @@ const About = () => {
                 </div>
             </div>
 
-            <TextMoveImage />
+            <TextMoveImage text="CODE"/>
 
         </MainLayout>
      );
