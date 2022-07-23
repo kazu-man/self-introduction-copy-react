@@ -6,17 +6,25 @@ import gsap from "gsap"
 import { useNavigate } from "react-router-dom";
 
 type propsType ={
-    theme:"black" | "white"
+    theme:"black" | "white",
+    target:"About" | "Work"
 }
 
-  const NavBar = ({theme}:propsType) => {
+  const NavBar = ({theme,target}:propsType) => {
 
     const circle = useRef(null);
     const aboutCircle = useRef(null);
     let navigate = useNavigate();
 
-    const toAbout = () =>{
-        navigate("/about")
+    const toTargetPate = () =>{
+        switch(target){
+            case "About":
+                navigate("/about")
+                return;
+            case "Work":
+                navigate("/")
+                return;
+        }
     }
     const toHome = () =>{
         navigate("/")
@@ -70,9 +78,9 @@ type propsType ={
                 <div css={styled.circle} ></div>
                 <div css={styled.circle} ref={circle} onMouseOver={circleMove}></div>
             </div>
-            <div css={styled.aboutLink} onMouseOver={aboutCircleMove} onClick={toAbout} style={{color:theme}}>
+            <div css={styled.aboutLink} onMouseOver={aboutCircleMove} onClick={toTargetPate} style={{color:theme}}>
                 <div css={styled.aboutCircle} ref={aboutCircle} style={{background:theme}}></div>
-                About
+                {target}
             </div>
         </div>
     )

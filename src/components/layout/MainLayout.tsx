@@ -51,7 +51,7 @@ const MainLayout = ({ children }: propType) => {
             
         <div className="area js-area">
             <MainLayoutLoading/>
-            <NavBar theme={"black"}/>
+            <NavBar theme={"black"} target="Work"/>
             {body()}
         </div>
 

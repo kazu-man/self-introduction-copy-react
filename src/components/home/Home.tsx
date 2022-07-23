@@ -6,7 +6,7 @@ const Home = () => {
     return ( 
         <div className="main-area">
             <HomeLoading/>
-            <NavBar theme={"white"}/>
+            <NavBar theme={"white"} target="About"/>
             <ParallaxHorizontalScrollPage />
         </div>
      );
