@@ -23,12 +23,15 @@ type propsType = {
                 <img alt="" css={[styled.image]} src={leftPic.image} />
                 <div css={styled.subTitle}>{leftPic.subTitle}</div>
             </div>
-            <div css={[styled.picture]}>
-                <div css={styled.picTitle}>{rightPic.title}</div>
-                {/* <img alt="" css={[styled.image]} src={`${window.location.origin}/${rightPic.image}`} /> */}
-                <img alt="" css={[styled.image]} src={rightPic.image} />
-                <div css={styled.subTitle}>{rightPic.subTitle}</div>
-            </div>
+            {
+                rightPic &&
+                <div css={[styled.picture]}>
+                    <div css={styled.picTitle}>{rightPic.title}</div>
+                    {/* <img alt="" css={[styled.image]} src={`${window.location.origin}/${rightPic.image}`} /> */}
+                    <img alt="" css={[styled.image]} src={rightPic.image} />
+                    <div css={styled.subTitle}>{rightPic.subTitle}</div>
+              </div>
+            }
 
         </div>
     )

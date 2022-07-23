@@ -15,14 +15,33 @@ const HomeLoading = () =>{
     let moveFlg = true;
 
     useEffect(()=>{
-        //二回useEffect呼ばれるので対策
-        if(percentNum !== 0) return;
-
-        let timer :NodeJS.Timer | null;
 
         //バーの表示開始
         moveBar()
 
+    },[]);
+    
+    const moveBar = () =>{
+        
+        let timer :NodeJS.Timer | null;
+        if(!moveFlg) return;
+
+        gsap
+        .timeline()
+        .from(nameDom.current,{
+            y:"-100%",
+            skewY:-10,
+            duration:0.5
+        })
+        .from(barDom.current,
+            {
+                x:-500,
+                duration:1,
+                ease: "power2.inOut",
+            }
+        )
+
+                
         setTimeout(()=> {
 
             //バーのゲージを100%にする
@@ -41,26 +60,6 @@ const HomeLoading = () =>{
             },10)
             
         },1500)
-    },[]);
- 
-    const moveBar = () =>{
-    
-        if(!moveFlg) return;
-
-        gsap
-        .timeline()
-        .from(nameDom.current,{
-            y:"-100%",
-            skewY:-10,
-            duration:0.5
-        })
-        .from(barDom.current,
-            {
-                x:-500,
-                duration:1,
-                ease: "power2.inOut",
-            }
-        )
         moveFlg = false
     }
 

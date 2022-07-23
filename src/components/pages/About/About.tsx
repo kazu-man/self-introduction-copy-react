@@ -4,8 +4,15 @@ import { css } from "@emotion/react";
 import TextMoveImage from "./TextMoveImage";
 import AboutContent from "./AboutContent";
 import AboutFooter from "./AboutFooter";
+import {useLocation} from "react-router-dom"
+import { useEffect } from "react";
 
 const About = () => {
+    const location = useLocation();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [location]);
 
     return ( 
         <MainLayout>

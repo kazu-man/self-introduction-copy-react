@@ -4,14 +4,25 @@ import { css } from "@emotion/react";
 import { useParams } from 'react-router-dom';
 import { getObjByName } from "../../../data/HomeData";
 import { getTextByName } from "../../../data/WorkData";
+import WorkFooter from "./WorkFooter";
+import {useLocation} from "react-router-dom"
+import { useEffect } from "react";
 
 const Work = () => {
     const params = useParams();
     const {title, image, subTitle} = getObjByName(params.id!);
+    const location = useLocation();
+
+    useEffect(() => {
+      console.log("Location changed");
+      window.scrollTo(0, 0);
+      
+    }, [location]);
+  
 
     const imageTexts = () => {
         const target = getTextByName(params.id!);
-        
+
         if(!target){
             return null
         }
@@ -54,7 +65,9 @@ const Work = () => {
                         
                     </div>
                 </div>
-                
+
+
+                <WorkFooter />
             </div>
         </MainLayout>
      );

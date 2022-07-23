@@ -13,7 +13,7 @@ import { homeData, imageType } from '../../data/HomeData';
 
 export type contentBoxType = {
   leftPic:imageType,
-  rightPic:imageType
+  rightPic?:imageType
 }
 
 
@@ -22,9 +22,11 @@ const ParallaxHorizontalScrollPage = () => {
   const [scrollPercent, setScrollPercent] = useState <number>(0);
 
   const [contents] = useState <contentBoxType[]> (homeData)
+  const [flg,setFlg] = useState(true);
+  //必要な文字数
 
-    useEffect(() => {
-
+  useEffect(()=>{
+        if(!flg) return;
       //プラグインを定義
         gsap.registerPlugin(ScrollTrigger);
 
@@ -56,8 +58,10 @@ const ParallaxHorizontalScrollPage = () => {
               duration: 1,
               overwrite: true,
               onUpdate: () => {
+                  let test = document.querySelector(".wrap");
+                  if(!test) return;
                   heightYsetter(proxy.scale);
-                  const windowWidth = document.querySelector(".wrap")!.clientWidth;
+                  const windowWidth = test.clientWidth;
                   let {x, width} = document.querySelector(".first-box")!.getBoundingClientRect();
                   setScrollPercent(x / (windowWidth - width) * -100)
         
@@ -79,8 +83,9 @@ const ParallaxHorizontalScrollPage = () => {
         },
       });
 
-  
-    }, [])
+      setFlg(false)
+
+    }, [setFlg,flg])
 
     const contentsBoxList = () =>{
       return (
