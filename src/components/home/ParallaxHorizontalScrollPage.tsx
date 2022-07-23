@@ -9,7 +9,7 @@ import { css  }  from '@emotion/react'
 import TopBox from './TopBox'
 import ContentBox from './ContentBox';
 import BarPercent from './BarPercent';
-
+import { homeData } from '../../data/HomeData';
 
 export type imageType = {
   title:string,
@@ -27,80 +27,7 @@ const ParallaxHorizontalScrollPage = () => {
 
   const [scrollPercent, setScrollPercent] = useState <number>(0);
 
-  const [contents] = useState <contentBoxType[]> ([
-    {
-      leftPic:{
-        title:"Sample",
-        image:"https://picsum.photos/600/600?random=1",
-        subTitle:"Corperate Site"
-      },
-      rightPic:{
-        title:"second",
-        image:"https://picsum.photos/600/600?random=2",
-        subTitle:"brand"
-      },
-    },
-    {
-      leftPic:{
-        title:"main",
-        image:"https://picsum.photos/600/600?random=3",
-        subTitle:"brand"
-      },
-      rightPic:{
-        title:"second",
-        image:"https://picsum.photos/600/600?random=4",
-        subTitle:"brand"
-      },
-    },
-    {
-      leftPic:{
-        title:"main",
-        image:"https://picsum.photos/600/600?random=5",
-        subTitle:"brand"
-      },
-      rightPic:{
-        title:"second",
-        image:"https://picsum.photos/600/600?random=6",
-        subTitle:"brand"
-      },
-    },
-    {
-      leftPic:{
-        title:"main",
-        image:"https://picsum.photos/600/600?random=7",
-        subTitle:"brand"
-      },
-      rightPic:{
-        title:"second",
-        image:"https://picsum.photos/600/600?random=8",
-        subTitle:"brand"
-      },
-    },
-    {
-      leftPic:{
-        title:"main",
-        image:"https://picsum.photos/600/600?random=9",
-        subTitle:"brand"
-      },
-      rightPic:{
-        title:"second",
-        image:"https://picsum.photos/600/600?random=10",
-        subTitle:"brand"
-      },
-    },
-    {
-      leftPic:{
-        title:"main",
-        image:"https://picsum.photos/600/600?random=11",
-        subTitle:"brand"
-      },
-      rightPic:{
-        title:"second",
-        image:"https://picsum.photos/600/600?random=12",
-        subTitle:"brand"
-      },
-    },
-  ])
+  const [contents] = useState <contentBoxType[]> (homeData)
 
     useEffect(() => {
 
