@@ -3,6 +3,7 @@ import MainLayout from "../layout/MainLayout";
 import { css } from "@emotion/react";
 import TextMoveImage from "./TextMoveImage";
 import AboutContent from "./AboutContent";
+import AboutFooter from "./AboutFooter";
 
 const About = () => {
 
@@ -56,6 +57,8 @@ const About = () => {
                     私を説明するにあたって、これほど的を得たキャッチコピーは他にありません。
                 </AboutContent>
             </div>
+            
+            <AboutFooter />
 
         </MainLayout>
      );
