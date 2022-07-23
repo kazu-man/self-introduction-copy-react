@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import MainLayout from "../layout/MainLayout";
+import MainLayout from "../../layout/MainLayout";
 import { css } from "@emotion/react";
 import TextMoveImage from "./TextMoveImage";
 import AboutContent from "./AboutContent";
