@@ -9,13 +9,7 @@ import { css  }  from '@emotion/react'
 import TopBox from './TopBox'
 import ContentBox from './ContentBox';
 import BarPercent from './BarPercent';
-import { homeData } from '../../data/HomeData';
-
-export type imageType = {
-  title:string,
-  image:string,
-  subTitle:string
-}
+import { homeData, imageType } from '../../data/HomeData';
 
 export type contentBoxType = {
   leftPic:imageType,

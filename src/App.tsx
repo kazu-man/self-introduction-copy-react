@@ -3,6 +3,7 @@ import React from 'react';
 import './App.css';
 import Home from './components/home/Home';
 import About from './components/pages/About/About';
+import Work from './components/pages/Work/Work';
 import {BrowserRouter,Route,Routes} from "react-router-dom";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         
           <Route path="/" element={<Home />}></Route>
           <Route path="/about" element={<About/>}></Route>
+          <Route path="/work/:id" element={<Work/>}></Route>
           
         </Routes>
       </BrowserRouter>
