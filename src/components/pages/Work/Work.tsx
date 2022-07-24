@@ -7,14 +7,16 @@ import { getTextByName } from "../../../data/WorkData";
 import WorkFooter from "./WorkFooter";
 import {useLocation} from "react-router-dom"
 import { useEffect } from "react";
+import WorkPrevNextBtn from "./WorkPrevNexBtn"
 
+// import WorkLoading from "../../loading/WorkLoading";
 const Work = () => {
     const params = useParams();
-    const {title, image, subTitle} = getObjByName(params.id!);
+    const {id, title, image, subTitle} = getObjByName(params.id!)!;
     const location = useLocation();
 
     useEffect(() => {
-      console.log("Location changed");
+      console.log(location);
       window.scrollTo(0, 0);
       
     }, [location]);
@@ -43,6 +45,7 @@ const Work = () => {
     
     return ( 
         <MainLayout>
+
             <div css={styled.wrapper}>
 
                 <div css={styled.topWrap}>
@@ -66,8 +69,19 @@ const Work = () => {
                     </div>
                 </div>
 
+                <div css={styled.mainArea}>
+                    <WorkPrevNextBtn id={id - 1} btn="PREV" />
+                    <WorkPrevNextBtn id={id + 1} btn="NEXT" />
 
-                <WorkFooter />
+                    <div css={styled.contents}>
+                        
+                        some content
+                    </div>
+
+                    <WorkFooter />
+                </div>
+
+
             </div>
         </MainLayout>
      );
@@ -113,6 +127,13 @@ const styled = {
         paddingBottom:"5px",
         fontFamily:"'Spectral', serif",
 
+    }),
+    mainArea:css({
+        width:"100%",
+        position:"relative"
+    }),
+    contents:css({
+        height:"500px"
     })
 
 }

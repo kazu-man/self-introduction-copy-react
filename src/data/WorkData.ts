@@ -123,6 +123,13 @@ export const imageText: imageTextType = {
             subtitle:"Produce, Interaction Design",
             text:"シャンプーのBOTANIST、ヘアアイロンのSALONIAの会社、I-neのコーポレートサイトを設計しました。"
         },
+    ],
+    "Sample7":[
+        {
+            title:"Role",
+            subtitle:"Produce, Interaction Design",
+            text:"シャンプーのBOTANIST、ヘアアイロンのSALONIAの会社、I-neのコーポレートサイトを設計しました。"
+        },
     ]}
 
 
