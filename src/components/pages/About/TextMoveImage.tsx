@@ -60,16 +60,18 @@ const TextMoveImage = ({text}:{text:string}) => {
     }
 
     return ( 
-        <div css={styled.profileImageWrap}>
-            <div css={styled.blackTextBox}>
-                <div css={styled.blackText}>
-                    {repeatText("black")}
+        <div style={{position:"relative"}}>
+            <div css={styled.profileImageWrap}>
+                <div css={styled.blackTextBox}>
+                    <div css={styled.blackText}>
+                        {repeatText("black")}
+                    </div>
                 </div>
-            </div>
-            <div css={styled.picWithRedtextBox}>
-                <img alt="" css={[styled.profilePic]} src="https://picsum.photos/600/600?random=1" id="imageBox"/>
-                <div css={styled.redText} >
-                    {repeatText("red")}
+                <div css={styled.picWithRedtextBox}>
+                    <img alt="" css={[styled.profilePic]} src="https://picsum.photos/600/600?random=1" id="imageBox"/>
+                    <div css={styled.redText} >
+                        {repeatText("red")}
+                    </div>
                 </div>
             </div>
         </div>
@@ -79,7 +81,7 @@ const TextMoveImage = ({text}:{text:string}) => {
 const styled = {
     profileImageWrap:css({
         width: "300px",
-        margin: "100px auto"
+        margin: "0 auto",
     }),
     blackTextBox:css({}),
     blackText:css({

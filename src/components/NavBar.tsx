@@ -73,16 +73,16 @@ type propsType ={
     }
 
     return (
-        <div css={styled.area}>
-            <div onClick={toHome}>
-                <div css={styled.circle} ></div>
+        <>
+            <div onClick={toHome} css={styled.topCircle}>
+                <div css={styled.circle}></div>
                 <div css={styled.circle} ref={circle} onMouseOver={circleMove}></div>
             </div>
-            <div css={styled.aboutLink} onMouseOver={aboutCircleMove} onClick={toTargetPate} style={{color:theme}}>
-                <div css={styled.aboutCircle} ref={aboutCircle} style={{background:theme}}></div>
+            <div css={styled.aboutLink} onMouseOver={aboutCircleMove} onClick={toTargetPate}>
+                <div css={styled.aboutCircle} ref={aboutCircle}></div>
                 {target}
             </div>
-        </div>
+        </>
     )
 }
 
@@ -94,9 +94,6 @@ const styled = {
         top:"20px",
         width:"94%",
         margin: "0 3%",
-        display:"flex",
-        justifyContent:"space-between",
-        flexWrap: "wrap",
         zIndex:"99"
     }),
     circle:css({
@@ -112,7 +109,12 @@ const styled = {
         display:"flex",
         alignItems:"center",
         fontSize:"1.2rem",
-        cursor:"pointer"
+        cursor:"pointer",
+        mixBlendMode:"difference",
+        position: "fixed",
+        right: "3%",
+        top: "3%",
+        zIndex: 99,
     }),
     aboutCircle:css({
         background:"white",
@@ -120,6 +122,12 @@ const styled = {
         width:"15px",
         height:"15px",
         marginRight:"5px"
+    }),
+    topCircle:css({
+        position: "fixed",
+        left: "3%",
+        top: "3%",
+        zIndex: 99,    
     })
 
 

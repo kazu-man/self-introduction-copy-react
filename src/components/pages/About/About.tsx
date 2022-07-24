@@ -27,8 +27,10 @@ const About = () => {
                     </div>
                 </div>
             </div>
-
-            <TextMoveImage text="CODE"/>
+            
+            <div style={{padding:"100px 0"}}>
+                <TextMoveImage text="CODE"/>
+            </div>
 
             <div css={styled.aboutContentArea}>
                 <AboutContent title="Skill">
