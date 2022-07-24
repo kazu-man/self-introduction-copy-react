@@ -6,7 +6,7 @@ import gsap from 'gsap'
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-const WorkFooter = () => {
+const WorkFooter = ({showLoadingAnime}:{showLoadingAnime:Function}) => {
 
     const dataList = getAllList();
     let navigate = useNavigate();
@@ -34,6 +34,7 @@ const WorkFooter = () => {
     }
 
     const toTargetPage = (targetPage:string) => {
+        showLoadingAnime()
         navigate("/work/" + targetPage)
     }
 

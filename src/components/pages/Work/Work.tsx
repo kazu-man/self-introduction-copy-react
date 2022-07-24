@@ -6,25 +6,40 @@ import { getObjByName } from "../../../data/HomeData";
 import { getTextByName } from "../../../data/WorkData";
 import WorkFooter from "./WorkFooter";
 import {useLocation} from "react-router-dom"
-import { useEffect,useState } from "react";
+import { useEffect,useState,useRef } from "react";
 import WorkPrevNextBtn from "./WorkPrevNexBtn"
 import WorkLoading from "../../loading/WorkLoading";
+import gsap from "gsap"
 
 const Work = () => {
     const params = useParams();
     const {id, title, image, subTitle} = getObjByName(params.id!)!;
     const location = useLocation();
     const [workLoadingFlg,setWorkLoadingFlg] = useState(false);
+    const wrapper = useRef(null);
 
     useEffect(() => {
-      window.scrollTo(0, 0);
+    //   window.scrollTo(0, 0);
       
     }, [location]);
+
+    const pageChangeAnimation = () =>{
+        gsap.to(wrapper.current,{
+            opacity:0,
+            duration:1,
+            onComplete:()=>{
+                window.scrollTo(0, 0);
+                setWorkLoadingFlg(true);
+                gsap.to(wrapper.current,{
+                    opacity:1,
+                    delay:0.5
+                })
+            }
+        })   
+    }
   
     const showLoadingAnime = () => {
-        console.log("hakka")
-        window.scrollTo(0, 0);
-        setWorkLoadingFlg(true)
+        pageChangeAnimation()
     }
 
     const imageTexts = () => {
@@ -49,7 +64,7 @@ const Work = () => {
     }
     
     return ( 
-        <div>
+        <div ref={wrapper}>
             {
                 workLoadingFlg && <WorkLoading setWorkLoadingFlg={setWorkLoadingFlg} image={image}/>
             }
@@ -89,7 +104,7 @@ const Work = () => {
                             some content
                         </div>
 
-                        <WorkFooter />
+                        <WorkFooter showLoadingAnime={showLoadingAnime} />
                     </div>
 
 
