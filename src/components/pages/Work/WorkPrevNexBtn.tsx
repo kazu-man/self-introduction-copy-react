@@ -8,10 +8,11 @@ import {getObjById} from "../../../data/HomeData"
 
 type propsType = {
     btn:"PREV" | "NEXT",
-    id:number
+    id:number,
+    showLoadingAnime:Function
 }
 
-const WorkPrevNextBtn = ({btn,id}:propsType) => {
+const WorkPrevNextBtn = ({btn,id,showLoadingAnime}:propsType) => {
     const textPosition = btn === "PREV" ? {left:"-100%"} : {right:"-100%"};
     const textMoveTo =  btn === "PREV" ? 1 : -1;
     const targetBtnArea = useRef(null);
@@ -19,7 +20,7 @@ const WorkPrevNextBtn = ({btn,id}:propsType) => {
     const obj = getObjById(id);
     let navigate = useNavigate();
     let targetPage = "/about";
-    
+
     if(id > 0 && obj !== undefined){
         const {title} = obj!;
         targetPage = "/work/" + title;
@@ -90,6 +91,7 @@ const WorkPrevNextBtn = ({btn,id}:propsType) => {
     }
 
     const toTargetPage = () => {
+        showLoadingAnime()
         navigate(targetPage)
     }
     

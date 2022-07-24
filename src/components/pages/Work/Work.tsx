@@ -6,21 +6,26 @@ import { getObjByName } from "../../../data/HomeData";
 import { getTextByName } from "../../../data/WorkData";
 import WorkFooter from "./WorkFooter";
 import {useLocation} from "react-router-dom"
-import { useEffect } from "react";
+import { useEffect,useState } from "react";
 import WorkPrevNextBtn from "./WorkPrevNexBtn"
+import WorkLoading from "../../loading/WorkLoading";
 
-// import WorkLoading from "../../loading/WorkLoading";
 const Work = () => {
     const params = useParams();
     const {id, title, image, subTitle} = getObjByName(params.id!)!;
     const location = useLocation();
+    const [workLoadingFlg,setWorkLoadingFlg] = useState(false);
 
     useEffect(() => {
-      console.log(location);
       window.scrollTo(0, 0);
       
     }, [location]);
   
+    const showLoadingAnime = () => {
+        console.log("hakka")
+        window.scrollTo(0, 0);
+        setWorkLoadingFlg(true)
+    }
 
     const imageTexts = () => {
         const target = getTextByName(params.id!);
@@ -44,46 +49,53 @@ const Work = () => {
     }
     
     return ( 
-        <MainLayout>
+        <div>
+            {
+                workLoadingFlg && <WorkLoading setWorkLoadingFlg={setWorkLoadingFlg} image={image}/>
+            }
 
-            <div css={styled.wrapper}>
+            <MainLayout>
 
-                <div css={styled.topWrap}>
-                    <div css={styled.top} >
-                        <div css={styled.subTitle}>{subTitle}</div>
-                        <div css={styled.title}>{title}</div>
+
+                <div css={styled.wrapper}>
+
+                    <div css={styled.topWrap}>
+                        <div css={styled.top} >
+                            <div css={styled.subTitle}>{subTitle}</div>
+                            <div css={styled.title}>{title}</div>
+                        </div>
                     </div>
+
+
+                    <div css={styled.contentArea} >
+
+                        <div css={styled.topImage}>
+                            <img src={image} alt="" style={{width:"90%"}} id="topImage"/>
+                        </div>
+
+                        <div css={styled.imageTextArea}>
+
+                            {imageTexts()}
+                            
+                        </div>
+                    </div>
+
+                    <div css={styled.mainArea}>
+                        <WorkPrevNextBtn id={id - 1} btn="PREV" showLoadingAnime={showLoadingAnime}/>
+                        <WorkPrevNextBtn id={id + 1} btn="NEXT" showLoadingAnime={showLoadingAnime}/>
+
+                        <div css={styled.contents}>
+                            
+                            some content
+                        </div>
+
+                        <WorkFooter />
+                    </div>
+
+
                 </div>
-
-
-                <div css={styled.contentArea} >
-
-                    <div css={styled.topImage} id="topImage">
-                        <img src={image} alt="" style={{width:"90%"}}/>
-                    </div>
-
-                    <div css={styled.imageTextArea}>
-
-                        {imageTexts()}
-                        
-                    </div>
-                </div>
-
-                <div css={styled.mainArea}>
-                    <WorkPrevNextBtn id={id - 1} btn="PREV" />
-                    <WorkPrevNextBtn id={id + 1} btn="NEXT" />
-
-                    <div css={styled.contents}>
-                        
-                        some content
-                    </div>
-
-                    <WorkFooter />
-                </div>
-
-
-            </div>
-        </MainLayout>
+            </MainLayout>
+        </div>
      );
 }
 
