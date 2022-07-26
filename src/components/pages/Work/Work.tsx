@@ -3,8 +3,9 @@ import MainLayout from "../../layout/MainLayout";
 import { css } from "@emotion/react";
 import { useParams } from 'react-router-dom';
 import { getObjByName } from "../../../data/HomeData";
-import { getTextByName } from "../../../data/WorkData";
+import { getWorkDataByName,workHistory,workDataType } from "../../../data/WorkData";
 import WorkFooter from "./WorkFooter";
+import WorkAboutText from "./WorkAboutText";
 import {useLocation} from "react-router-dom"
 import { useEffect,useState,useRef } from "react";
 import WorkPrevNextBtn from "./WorkPrevNexBtn"
@@ -13,10 +14,13 @@ import gsap from "gsap"
 
 const Work = () => {
     const params = useParams();
-    const {id, title, image, subTitle} = getObjByName(params.id!)!;
+    const targetObj = getObjByName(params.id!)!;
+    const {id, title, image, subTitle} = targetObj;
     const location = useLocation();
     const [workLoadingFlg,setWorkLoadingFlg] = useState(false);
     const wrapper = useRef(null);
+    const target:workDataType = getWorkDataByName(params.id!)!;
+    const targetHistory:workHistory = getWorkDataByName(params.id!)!.workHistory;
 
     useEffect(() => {
     //   window.scrollTo(0, 0);
@@ -43,14 +47,13 @@ const Work = () => {
     }
 
     const imageTexts = () => {
-        const target = getTextByName(params.id!);
 
-        if(!target){
+        if(!targetHistory){
             return null
         }
 
         return (
-            getTextByName(params.id!).map((data,index) => {
+            targetHistory.map((data,index) => {
                 return (
                     <div css={styled.imageText} key={index}>
                         <div style={{width:"20%",textAlign:"left",opacity:"0.5"}}>{data.title}</div>
@@ -101,7 +104,8 @@ const Work = () => {
 
                         <div css={styled.contents}>
                             
-                            some content
+                            <WorkAboutText target={target}/>
+
                         </div>
 
                         <WorkFooter showLoadingAnime={showLoadingAnime} />
