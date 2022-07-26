@@ -3,29 +3,23 @@ import MainLayout from "../../layout/MainLayout";
 import { css } from "@emotion/react";
 import { useParams } from 'react-router-dom';
 import { getObjByName } from "../../../data/HomeData";
-import { getWorkDataByName,workHistory,workDataType } from "../../../data/WorkData";
+import { getWorkDataByName,workDataType } from "../../../data/WorkData";
 import WorkFooter from "./WorkFooter";
 import WorkAboutText from "./WorkAboutText";
-import {useLocation} from "react-router-dom"
-import { useEffect,useState,useRef } from "react";
+import { useState,useRef } from "react";
 import WorkPrevNextBtn from "./WorkPrevNexBtn"
 import WorkLoading from "../../loading/WorkLoading";
 import gsap from "gsap"
+import WorkMainContents from "./WorkMainContents"
 
 const Work = () => {
     const params = useParams();
     const targetObj = getObjByName(params.id!)!;
     const {id, title, image, subTitle} = targetObj;
-    const location = useLocation();
     const [workLoadingFlg,setWorkLoadingFlg] = useState(false);
     const wrapper = useRef(null);
     const target:workDataType = getWorkDataByName(params.id!)!;
-    const targetHistory:workHistory = getWorkDataByName(params.id!)!.workHistory;
-
-    useEffect(() => {
-    //   window.scrollTo(0, 0);
-      
-    }, [location]);
+    const {workComponents,workHistory,workAbout} = target;
 
     const pageChangeAnimation = () =>{
         gsap.to(wrapper.current,{
@@ -48,12 +42,12 @@ const Work = () => {
 
     const imageTexts = () => {
 
-        if(!targetHistory){
+        if(!workHistory){
             return null
         }
 
         return (
-            targetHistory.map((data,index) => {
+            workHistory.map((data,index) => {
                 return (
                     <div css={styled.imageText} key={index}>
                         <div style={{width:"20%",textAlign:"left",opacity:"0.5"}}>{data.title}</div>
@@ -104,9 +98,11 @@ const Work = () => {
 
                         <div css={styled.contents}>
                             
-                            <WorkAboutText target={target}/>
+                            <WorkAboutText target={workAbout}/>
 
                         </div>
+
+                        <WorkMainContents contents={workComponents}/>
 
                         <WorkFooter showLoadingAnime={showLoadingAnime} />
                     </div>
@@ -164,7 +160,8 @@ const styled = {
         position:"relative"
     }),
     contents:css({
-        height:"500px"
+        background:"#f9f9f9"
+
     })
 
 }

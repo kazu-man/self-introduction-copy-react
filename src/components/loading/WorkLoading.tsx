@@ -21,7 +21,6 @@ const WorkLoading = ({setWorkLoadingFlg,image}:{setWorkLoadingFlg:Function,image
 
     useEffect(()=>{
         //アニメーション開始
-        console.log(targetImageSize);
         gsap
         .set(grayZoneDom.current,{
             x:-1000,

@@ -1,18 +1,18 @@
 /** @jsxImportSource @emotion/react */
 
 import { css } from "@emotion/react";
-import {workDataType} from "../../../data/WorkData";
+import {workAbout} from "../../../data/WorkData";
 
-export const WorkAboutText = ({target}:{target:workDataType}) => {
-    const { workAbout } = target;
+export const WorkAboutText = ({target}:{target:workAbout}) => {
+
     return ( 
-        <div css={styled.wrapper}>
+        <div css={styled.wrapper} style={{background:target.background ? target.background : "",color:target.background ? "white" : ""}}>
             <div css={styled.contentArea}>
                 <div css={styled.title}>
-                    {workAbout.title}
+                    {target.title}
                 </div>
                 <div css={styled.text}>
-                    {workAbout.text}
+                    {target.text}
                 </div>
             </div>
         </div>
@@ -24,10 +24,8 @@ const styled = {
         padding:"100px 0",
         fontFamily:"'Montserrat', sans-serif",
         width:"100%",
-        background:"#f9f9f9"
     }),
     contentArea:css({
-        color:"black",
         width:"70%",
         textAlign:"left",
         margin:"0 auto"

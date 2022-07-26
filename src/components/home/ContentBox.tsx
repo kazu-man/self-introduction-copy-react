@@ -17,7 +17,9 @@ const ContentBox = ( props:propsType ) => {
     let navigate = useNavigate();
     
     const toTargetPage = (targetPage:string) => {
-        navigate("/work/" + targetPage)
+        navigate("/work/" + targetPage);
+        window.scrollTo(0, 0);
+
     }
 
     return (
