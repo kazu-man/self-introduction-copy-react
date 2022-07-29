@@ -62,13 +62,13 @@ const TextMoveImage = ({text}:{text:string}) => {
         <div style={{position:"relative"}}>
             <div css={styled.profileImageWrap}>
                 <div css={styled.blackTextBox}>
-                    <div css={styled.blackText}>
+                    <div css={[styled.blackText,styled.smarlScreen]}>
                         {repeatText("black")}
                     </div>
                 </div>
                 <div css={styled.picWithRedtextBox}>
                     <img alt="" css={[styled.profilePic]} src="https://picsum.photos/600/600?random=1" id="imageBox"/>
-                    <div css={styled.redText} >
+                    <div css={[styled.redText,styled.smarlScreen]} >
                         {repeatText("red")}
                     </div>
                 </div>
@@ -116,7 +116,12 @@ const styled = {
     }),
     profilePic:css({
         width:"100%"
-    })
+    }),
+    smarlScreen:css`
+        @media (max-width: 768px){
+            top:30%
+        }
+    `
 }
 
 export default TextMoveImage;
