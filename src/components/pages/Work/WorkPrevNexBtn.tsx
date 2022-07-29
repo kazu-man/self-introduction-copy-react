@@ -27,8 +27,20 @@ const WorkPrevNextBtn = ({btn,id,showLoadingAnime}:propsType) => {
     }
 
     useEffect(() => {
-        showBtn()
-    },[])
+        window.addEventListener('scroll', function(e) {
+            const targetEl = this.document.getElementById("targetBgArea_" + btn);
+
+            if(!targetEl) return;
+
+            const targetY = targetEl!.getBoundingClientRect().y;
+
+            if(targetY > 30){
+                setShowFlg(false)
+            }else{
+                setShowFlg(true)
+            }
+          });
+    },[btn])
     
     useEffect(() => {
         const showArea = () =>{
@@ -62,22 +74,6 @@ const WorkPrevNextBtn = ({btn,id,showLoadingAnime}:propsType) => {
         }
 
     },[btn, showFlg, textMoveTo])
-
-    const showBtn = () => {        
-        window.addEventListener('scroll', function(e) {
-            const targetEl = this.document.getElementById("targetBgArea_" + btn);
-
-            if(!targetEl) return;
-
-            const targetY = targetEl!.getBoundingClientRect().y;
-
-            if(targetY > 30){
-                setShowFlg(false)
-            }else{
-                setShowFlg(true)
-            }
-          });
-    }
     
     const handleMouseOver = () => {
         gsap.to("#targetBg_" + btn,{

@@ -1,17 +1,15 @@
 /** @jsxImportSource @emotion/react */
-import {useEffect,useState} from "react";
+import {useEffect} from "react";
 import { css } from "@emotion/react";
 import gsap from "gsap";
 import { EmotionJSX } from "@emotion/react/types/jsx-namespace";
 
 
 const TextMoveImage = ({text}:{text:string}) => {
-    const [flg,setFlg] = useState(true);
     //必要な文字数
     const MIN_TEXT_LENGTH = 60;
 
     useEffect(()=>{
-        if(!flg) return;
 
         const textFlow = () => {
             const client_w = document.getElementsByClassName('moveText')[0].clientWidth;
@@ -38,8 +36,7 @@ const TextMoveImage = ({text}:{text:string}) => {
 
         textFlow()
 
-        setFlg(false);
-    },[flg])
+    },[])
 
     const repeatText = (type:string) => {
         const classType = type === "black" ? "blackText" : "redText";

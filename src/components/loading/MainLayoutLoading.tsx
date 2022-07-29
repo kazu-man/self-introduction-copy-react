@@ -14,36 +14,35 @@ const MaiLayoutLoading = () =>{
 
     useEffect(()=>{
         //アニメーション開始
-        setTimeout(() => loader(),1000)
+        setTimeout(() => {
+    
+            if(!moveFlg) return;
+    
+            gsap
+            .timeline()
+            .from(grayZoneDom.current,{
+                y:"500px",
+                duration:0.8,
+                opacity:0.7,
+                height:"300px",
+            })
+            .to(loadingWrapDom.current,
+                {
+                    y:"-100%",
+                    duration:0.5,
+                    ease: "power2.inOut",
+                    delay:0.5,
+                    onComplete:() =>{
+                        setShowLoading(false);
+                    }
+                }
+            )
+    
+            moveFlg = false
+        },1000)
 
     },[]);
- 
-    const loader = () =>{
-    
-        if(!moveFlg) return;
 
-        gsap
-        .timeline()
-        .from(grayZoneDom.current,{
-            y:"500px",
-            duration:0.8,
-            opacity:0.7,
-            height:"300px",
-        })
-        .to(loadingWrapDom.current,
-            {
-                y:"-100%",
-                duration:0.5,
-                ease: "power2.inOut",
-                delay:0.5,
-                onComplete:() =>{
-                    setShowLoading(false);
-                }
-            }
-        )
-
-        moveFlg = false
-    }
 
     return  showLoading ? (
         <div ref={loadingWrapDom} css={styled.loadingWrap}>

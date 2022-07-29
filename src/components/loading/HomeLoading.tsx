@@ -17,12 +17,6 @@ const HomeLoading = () =>{
     useEffect(()=>{
 
         //バーの表示開始
-        moveBar()
-
-    },[]);
-    
-    const moveBar = () =>{
-        
         let timer :NodeJS.Timer | null;
         if(!moveFlg) return;
 
@@ -61,7 +55,8 @@ const HomeLoading = () =>{
             
         },1500)
         moveFlg = false
-    }
+
+    },[]);
 
     const closeLoading = () => {
         gsap.timeline()

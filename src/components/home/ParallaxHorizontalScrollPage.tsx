@@ -23,10 +23,11 @@ const ParallaxHorizontalScrollPage = () => {
 
   const [contents] = useState <contentBoxType[]> (homeData)
   const [flg,setFlg] = useState(true);
+
   //必要な文字数
 
   useEffect(()=>{
-        if(!flg) return;
+
       //プラグインを定義
         gsap.registerPlugin(ScrollTrigger);
 
@@ -85,7 +86,7 @@ const ParallaxHorizontalScrollPage = () => {
 
       setFlg(false)
 
-    }, [setFlg,flg])
+    }, [flg])
 
     const contentsBoxList = () =>{
       return (

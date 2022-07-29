@@ -25,56 +25,55 @@ const WorkLoading = ({setWorkLoadingFlg,image}:{setWorkLoadingFlg:Function,image
         .set(grayZoneDom.current,{
             x:-1000,
         })
-        setTimeout(() => loader(),1000)
+        setTimeout(() => {
+    
+            if(!moveFlg) return;
+    
+            gsap
+            .timeline()
+            .to(grayZoneDom.current,{
+                x:0,
+                duration:0.8,
+                ease: "easeIn",
+            })
+            .set(targetImage.current,{
+                opacity:1,
+            })
+            .to(grayZoneDom.current,
+                {
+                    x:"100%",
+                    duration:1,
+                    ease: "power2.inOut",
+                    delay:0.5,
+                },
+                "sameTime"
+            )
+            .to(targetImage.current,
+                {
+                    x:"-110%",
+                    duration:1,
+                    ease: "power2.inOut",
+                    delay:0.5,
+                },
+                "sameTime"
+            )
+            .to(loadingWrapDom.current,
+                {
+                    x:"100%",
+                    duration:1,
+                    ease: "power2.inOut",
+                    delay:0.5,
+                    onComplete:() =>{
+                        setWorkLoadingFlg(false);
+                    }
+                },
+                "sameTime"
+            )
+    
+            moveFlg = false
+        },1000)
     },[]);
  
-    const loader = () =>{
-    
-        if(!moveFlg) return;
-
-        gsap
-        .timeline()
-        .to(grayZoneDom.current,{
-            x:0,
-            duration:0.8,
-            ease: "easeIn",
-        })
-        .set(targetImage.current,{
-            opacity:1,
-        })
-        .to(grayZoneDom.current,
-            {
-                x:"100%",
-                duration:1,
-                ease: "power2.inOut",
-                delay:0.5,
-            },
-            "sameTime"
-        )
-        .to(targetImage.current,
-            {
-                x:"-110%",
-                duration:1,
-                ease: "power2.inOut",
-                delay:0.5,
-            },
-            "sameTime"
-        )
-        .to(loadingWrapDom.current,
-            {
-                x:"100%",
-                duration:1,
-                ease: "power2.inOut",
-                delay:0.5,
-                onComplete:() =>{
-                    setWorkLoadingFlg(false);
-                }
-            },
-            "sameTime"
-        )
-
-        moveFlg = false
-    }
 
     return  (
         <div ref={loadingWrapDom} css={styled.loadingWrap}>
