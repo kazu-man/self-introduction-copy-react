@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { css } from "@emotion/react";
-
+import ShowWhenEnter from "./components/ShowWhenEnter"
 type propType = {
     children:ReactNode,
     title:string
@@ -10,16 +10,16 @@ type propType = {
 const AboutContent = ({ children,title }: propType) => {
 
     return (
-            
-        <div css={styled.aboutContentWrapper}>
-            <div css={styled.title}>
-                {title}
+        <ShowWhenEnter>
+            <div css={styled.aboutContentWrapper}>
+                <div css={styled.title}>
+                    {title}
+                </div>
+                <div css={styled.content}>
+                    {children}
+                </div>
             </div>
-            <div css={styled.content}>
-                {children}
-            </div>
-        </div>
-
+        </ShowWhenEnter>  
     )
 }
 
