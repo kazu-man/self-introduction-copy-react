@@ -113,7 +113,8 @@ const styled = {
         marginTop:"-200px",
         mixBlendMode:"difference",
         cursor:"pointer",
-        overflow:"hidden"
+        overflow:"hidden",
+        zIndex:"99"
     }),
     dummyBg:css({
         content:`""`,
