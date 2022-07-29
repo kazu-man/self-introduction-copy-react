@@ -2,15 +2,20 @@
 
 import { css } from "@emotion/react";
 import { workImage } from "../../../../data/WorkData";
+import ShowWhenEnter from "../../components/ShowWhenEnter";
 
 export const TwoImage = ({workImage}:{workImage:workImage}) => {
     return ( 
         <div css={styled.wrapper} style={{background:workImage.background ? workImage.background : ""}}>
-          
-          <img src={workImage.url[0]} alt="" css={styled.image}/>
-          <img src={workImage.url[1]} alt="" css={styled.image}/>
+            
+                <ShowWhenEnter>
+                    <img src={workImage.url[0]} alt="" css={styled.image}/>
+                </ShowWhenEnter>      
+                <ShowWhenEnter>
+                    <img src={workImage.url[1]} alt="" css={styled.image}/>
+                </ShowWhenEnter>      
 
-        </div>
+            </div>
      );
 }
 
@@ -25,7 +30,7 @@ const styled = {
         padding:"10% 0"
     }),
     image:css({
-        width:"40%",
+        width:"100%",
     }),
 
 

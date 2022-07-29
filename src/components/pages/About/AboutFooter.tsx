@@ -46,7 +46,7 @@ const AboutFooter = () => {
 
     return (
             
-        <div css={styled.aboutFooter} id="footer" onMouseEnter={handleEnter} onMouseLeave={handleLeave}>
+        <div css={[styled.aboutFooter,styled.smallScreen]} id="footer" onMouseEnter={handleEnter} onMouseLeave={handleLeave}>
             <div css={styled.dummyBg} id="dummyBg"></div>
             <div css={styled.footetText} id="footerText">Please Message</div>
         </div>
@@ -80,6 +80,13 @@ const styled = {
         WebkitTextStroke:"1px white",
         fontFamily:'"Objective-bold", sans-serif'
     }),
+    smallScreen:css`
+    @media (max-width: 768px){
+        #footerText{
+            font-size:2rem;
+        }
+    }
+`
 
 }
 

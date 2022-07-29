@@ -92,20 +92,23 @@ const Work = () => {
                         </div>
                     </div>
 
-                    <div css={styled.mainArea}>
-                        <WorkPrevNextBtn id={id - 1} btn="PREV" showLoadingAnime={showLoadingAnime}/>
-                        <WorkPrevNextBtn id={id + 1} btn="NEXT" showLoadingAnime={showLoadingAnime}/>
+                    {
+                        !workLoadingFlg &&
+                        <div css={styled.mainArea}>
+                            <WorkPrevNextBtn id={id - 1} btn="PREV" showLoadingAnime={showLoadingAnime}/>
+                            <WorkPrevNextBtn id={id + 1} btn="NEXT" showLoadingAnime={showLoadingAnime}/>
 
-                        <div css={styled.contents}>
-                            
-                            <WorkAboutText target={workAbout}/>
+                            <div css={styled.contents}>
+                                
+                                <WorkAboutText target={workAbout}/>
+
+                            </div>
+
+                            <WorkMainContents contents={workComponents}/>
+                            <WorkFooter showLoadingAnime={showLoadingAnime} />
 
                         </div>
-
-                        <WorkMainContents contents={workComponents}/>
-
-                        <WorkFooter showLoadingAnime={showLoadingAnime} />
-                    </div>
+                    }
 
 
                 </div>

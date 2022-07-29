@@ -2,22 +2,22 @@
 
 import { css } from "@emotion/react";
 import { workImage } from "../../../../data/WorkData";
+import ShowWhenEnter from "../../components/ShowWhenEnter"
 
 export const MoreThanThreeImages = ({workImage}:{workImage:workImage}) => {
     const images = () => {
         return workImage.url.map((url) => {
             return (
-                <div key={Math.random()}>
+                <ShowWhenEnter key={Math.random()}>
                     <img src={url} alt="" css={styled.image} />      
-                </div>
+                </ShowWhenEnter>
             )
         })
     }
 
     return ( 
         <div css={styled.wrapper} style={{background:workImage.background ? workImage.background : ""}}>
-          
-          {images()}
+            {images()}
 
         </div>
      );

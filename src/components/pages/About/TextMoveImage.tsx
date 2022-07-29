@@ -14,7 +14,6 @@ const TextMoveImage = ({text}:{text:string}) => {
         if(!flg) return;
 
         const textFlow = () => {
-            console.log("FLOW")
             const client_w = document.getElementsByClassName('moveText')[0].clientWidth;
             const left = document.getElementById('imageBox')!.getBoundingClientRect().left ;
             const textStartPosition = -1  * client_w;

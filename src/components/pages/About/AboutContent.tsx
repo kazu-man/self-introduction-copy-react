@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { ReactNode } from 'react';
 import { css } from "@emotion/react";
-import ShowWhenEnter from "./components/ShowWhenEnter"
+import ShowWhenEnter from "../components/ShowWhenEnter"
 type propType = {
     children:ReactNode,
     title:string

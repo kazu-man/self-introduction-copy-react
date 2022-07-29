@@ -16,13 +16,13 @@ const About = () => {
 
     return ( 
         <MainLayout>
-            <div css={styled.topWrap}>
+            <div css={[styled.topWrap,styled.smallScreen]}>
                 <div css={styled.top}>
-                    <div css={styled.topLeft}>
+                    <div css={styled.topLeft} id="aboutTitle">
                         <div css={styled.name}>Makoto Hirao</div>
                         <div css={styled.subtitle}>平尾 誠/Currentry based in Japan - Osaka & Tokyo</div>
                     </div>
-                    <div css={styled.topRight}>
+                    <div css={styled.topRight} id="aboutLogo">
                         <img alt="" css={[styled.topImage]} src={`${window.location.origin}/cssda-judge-monogram.png`} />
                     </div>
                 </div>
@@ -108,9 +108,24 @@ const styled = {
         background:"#F9F9F9"
     }),
     aboutContentArea:css({
-        background:"#f9f9f9"
-    })
+        background:"#f9f9f9",
+        
+    }),
+    smallScreen:css`
+        @media (max-width: 768px){
+            #aboutTitle{
+                grid-column:1/7;
 
+            }
+            #aboutLogo{
+                position: absolute;
+                bottom: -55px;
+                right: 0;
+                background: white;
+                border-radius: 100%;
+            }
+        }
+    `
 }
 
 export default About;
