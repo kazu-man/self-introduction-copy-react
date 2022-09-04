@@ -6,6 +6,7 @@ import gsap from 'gsap'
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import ShowWhenEnter from "../components/ShowWhenEnter";
+import RefferenceBadge from "../components/ReferenceBadge";
 
 const WorkFooter = ({showLoadingAnime}:{showLoadingAnime:Function}) => {
 
@@ -65,6 +66,7 @@ const WorkFooter = ({showLoadingAnime}:{showLoadingAnime:Function}) => {
             <div css={styled.boxList}>
                 {boxList()}
             </div>
+<RefferenceBadge />
         </div>
      );
 }

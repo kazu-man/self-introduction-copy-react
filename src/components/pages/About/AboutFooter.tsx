@@ -1,6 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import gsap from 'gsap';
+import RefferenceBadge from "../components/ReferenceBadge";
 
 const AboutFooter = () => {
     const handleEnter = () => {
@@ -45,12 +46,13 @@ const AboutFooter = () => {
     }
 
     return (
-            
-        <div css={[styled.aboutFooter,styled.smallScreen]} id="footer" onMouseEnter={handleEnter} onMouseLeave={handleLeave}>
-            <div css={styled.dummyBg} id="dummyBg"></div>
-            <div css={styled.footetText} id="footerText">Please Message</div>
-        </div>
-
+            <>
+                <div css={[styled.aboutFooter,styled.smallScreen]} id="footer" onMouseEnter={handleEnter} onMouseLeave={handleLeave}>
+                    <div css={styled.dummyBg} id="dummyBg"></div>
+                    <div css={styled.footetText} id="footerText">Please Message</div>
+                </div>
+                <RefferenceBadge />
+            </>
     )
 }
 
